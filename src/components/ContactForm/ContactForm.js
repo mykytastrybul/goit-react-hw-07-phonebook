@@ -2,10 +2,11 @@ import s from './ContactForm.module.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contactsThunk';
+import { getStateContacts } from 'redux/contacts/contactsSelector';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(getStateContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
